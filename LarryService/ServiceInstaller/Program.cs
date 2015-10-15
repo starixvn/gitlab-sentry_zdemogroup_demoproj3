@@ -5,6 +5,7 @@ using System.Text;
 using System.ServiceProcess;
 using System.Configuration.Install;
 using System.Collections;
+using System.Diagnostics;
 
 namespace ServiceInstaller
 {
@@ -12,24 +13,57 @@ namespace ServiceInstaller
     {
         static void Main(string[] args)
         {
-            string fileName = @"D:\Projects\demoproj3\LarryService\LarryService\bin\Debug\LarryService.exe";
+            string fileName = @"D:\LarryService\LarryService.exe";
             string serviceName = "LarryService";
+            string machineName = "10.19.10.105";
 
-            var isServiceExisting = IsServiceExisting(serviceName);
+            var isServiceExisting = IsServiceExisting(machineName, serviceName);
 
             if (isServiceExisting)
             {
-                UninstallService(fileName);
+                UninstallRemoteService(machineName, serviceName, fileName);
             }
             else
             {
-                InstallService(fileName);
+                InstallRemoteService(machineName, serviceName, fileName);
             }
         }
 
-        private static bool IsServiceExisting(string serviceName)
+        private static void InstallRemoteService(string machineName, string serviceName, string executableFilePath)
         {
-            bool isExisting = ServiceController.GetServices()
+            string fileName = "sc.exe";
+            string arguments = string.Format(@"\\{0} create {1} binpath= {2}", machineName, serviceName, executableFilePath);
+
+            ProcessStartInfo startInfo = new ProcessStartInfo(fileName, arguments);
+            startInfo.UseShellExecute = false;
+            startInfo.RedirectStandardInput = true;
+            startInfo.RedirectStandardOutput = true;
+
+            Process process = new Process();
+            process.StartInfo = startInfo;
+            process.Start();
+            process.WaitForExit();
+        }
+
+        private static void UninstallRemoteService(string machineName, string serviceName, string executableFilePath)
+        {
+            string fileName = "sc.exe";
+            string arguments = string.Format(@"\\{0} delete {1} binpath= {2}", machineName, serviceName, executableFilePath);
+
+            ProcessStartInfo startInfo = new ProcessStartInfo(fileName, arguments);
+            startInfo.UseShellExecute = false;
+            startInfo.RedirectStandardInput = true;
+            startInfo.RedirectStandardOutput = true;
+
+            Process process = new Process();
+            process.StartInfo = startInfo;
+            process.Start();
+            process.WaitForExit();
+        }
+
+        private static bool IsServiceExisting(string machineName, string serviceName)
+        {
+            bool isExisting = ServiceController.GetServices(machineName)
                                 .Any(s => s.ServiceName.Equals(serviceName, StringComparison.InvariantCultureIgnoreCase));
 
             return isExisting;

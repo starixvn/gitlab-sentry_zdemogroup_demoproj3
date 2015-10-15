@@ -39,7 +39,7 @@
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.ServiceName = "LarryService";
+            this.serviceInstaller1.ServiceName = "LarryService1";
             // 
             // ProjectInstaller
             // 

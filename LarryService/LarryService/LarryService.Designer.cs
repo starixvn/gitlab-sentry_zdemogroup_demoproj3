@@ -1,6 +1,6 @@
 ﻿namespace LarryService
 {
-    partial class TestService
+    partial class LarryService
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.ServiceName = "Service1";
+            // 
+            // TestService
+            // 
+            this.ServiceName = "LarryService";
+
         }
 
         #endregion

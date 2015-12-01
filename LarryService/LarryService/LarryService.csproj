@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LarryService</RootNamespace>
-    <AssemblyName>LarryService1</AssemblyName>
+    <AssemblyName>LarryService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -53,11 +53,11 @@
     <Compile Include="ProjectInstaller.Designer.cs">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestService.cs">
+    <Compile Include="LarryService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TestService.Designer.cs">
-      <DependentUpon>TestService.cs</DependentUpon>
+    <Compile Include="LarryService.Designer.cs">
+      <DependentUpon>LarryService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +68,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LarryService.resx">
+      <DependentUpon>LarryService.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

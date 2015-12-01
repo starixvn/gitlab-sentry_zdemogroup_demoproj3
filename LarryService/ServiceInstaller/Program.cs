@@ -15,7 +15,7 @@ namespace ServiceInstaller
         {
             string fileName = @"D:\LarryService\LarryService.exe";
             string serviceName = "LarryService";
-            string machineName = "10.19.10.105";
+            string machineName = "10.19.10.63";
 
             var isServiceExisting = IsServiceExisting(machineName, serviceName);
 
@@ -35,14 +35,13 @@ namespace ServiceInstaller
             string arguments = string.Format(@"\\{0} create {1} binpath= {2}", machineName, serviceName, executableFilePath);
 
             ProcessStartInfo startInfo = new ProcessStartInfo(fileName, arguments);
-            startInfo.UseShellExecute = false;
-            startInfo.RedirectStandardInput = true;
+            startInfo.UseShellExecute = false;            
             startInfo.RedirectStandardOutput = true;
 
             Process process = new Process();
             process.StartInfo = startInfo;
             process.Start();
-            process.WaitForExit();
+            process.WaitForExit();            
         }
 
         private static void UninstallRemoteService(string machineName, string serviceName, string executableFilePath)

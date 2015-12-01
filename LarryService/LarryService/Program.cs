@@ -16,9 +16,10 @@ namespace LarryService
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
 			{ 
-				new TestService() 
+				new LarryService() 
 			};
             ServiceBase.Run(ServicesToRun);
         }
+        
     }
 }

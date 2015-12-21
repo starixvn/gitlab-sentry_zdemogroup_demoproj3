@@ -43,7 +43,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -53,9 +52,7 @@
     <Compile Include="ProjectInstaller.Designer.cs">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
-    <Compile Include="LarryService.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="LarryService.cs" />
     <Compile Include="LarryService.Designer.cs">
       <DependentUpon>LarryService.cs</DependentUpon>
     </Compile>

@@ -83,8 +83,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="log01.log" />
-    <None Include="test.log.txt" />
+    <Content Include="log01.log">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ManualConfig.xml" />
+    <None Include="test.log.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LarryService.Testing\LarryService.Testing.csproj">

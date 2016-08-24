@@ -25,7 +25,7 @@ namespace LarrySite.Controllers
             return View();
         }
 
-        public ActionResult Larry()
+        public ActionResult LarryTran()
         {
             ViewBag.Message = "Your contact page.";
 

@@ -27,7 +27,7 @@ namespace LarrySite.Controllers
 
         public ActionResult LarryTran()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Larry Tran";
 
             return View();
         }

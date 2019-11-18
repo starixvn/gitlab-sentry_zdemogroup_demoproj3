@@ -11,6 +11,7 @@ namespace LarryService
 
         protected override void OnStart(string[] args)
         {
+			System.Threading.Thread.Sleep(60000);
         }
 
         protected override void OnStop()
